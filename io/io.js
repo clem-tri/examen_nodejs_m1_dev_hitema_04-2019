@@ -12,11 +12,8 @@ module.exports.decodeHexFileContent = (filePath) =>  {
 
 
         var content = fs.readFileSync(filePath, 'utf8');
-
-
-        console.log(hex2a(content));
-
+        content = Buffer.from(content, 'hex').toString('utf8');
         if(content)
-            resolve(hex2a(content))
+            resolve(content)
     });
 }
